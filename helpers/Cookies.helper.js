@@ -6,8 +6,11 @@ import app from '../api.js'
 import path from 'path'
 
 // The "regular" cookie default options
-const CookieOptions                         = () => {
+const CookieOptions                         = (maxAge) => {
   return {
+    maxAge                                  : maxAge,
+    secure                                  : app.get('NODE_ENV') === 'production',
+    sameSite                                : 'strict',
     path                                    : '/',
   }
 }
@@ -27,8 +30,8 @@ const SignedCookieOptions                   = (maxAge) => {
 const CookiesHelper                         = {}
 
 // A normal method for setting regular cookies
-CookiesHelper.SetCookie                     = (name, value) => {
-  return res.cookie(name, value, CookieOptions)
+CookiesHelper.SetCookie                     = (name, value, maxAge, res) => {
+  return res.cookie(name, value, CookieOptions(maxAge))
 }
 
 // Method for setting a signed http-only cookie
@@ -48,11 +51,11 @@ CookiesHelper.GetUserIdCookie               = (req) => req.signedCookies.userId 
 
 // Quick access method for setting the access token cookie
 CookiesHelper.SetAccessTokenCookie          = (value, res) => {
-  return CookiesHelper.SetSignedHttpOnlyCookie('accessToken', value, 180000, res) // 180000 = 3 min
+  return CookiesHelper.SetCookie('accessToken', value, 180000, res) // 180000 = 3 min
 }
 
 // Quick access method for getting the access token cookie
-CookiesHelper.GetAccessTokenCookie          = (req) => req.signedCookies.accessToken
+CookiesHelper.GetAccessTokenCookie          = (req) => req.cookies.accessToken
 
 // Quick access method for setting the refresh token id cookie
 CookiesHelper.SetRefreshTokenIdCookie       = (value, res) => {
