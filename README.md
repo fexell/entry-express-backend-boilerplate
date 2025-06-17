@@ -34,9 +34,9 @@ PUT -> /api/lang/ => Changes the language (i18next)
 ## Install packages
 ```
 npm i
-
+```
 or
-
+```
 npm install
 ```
 
