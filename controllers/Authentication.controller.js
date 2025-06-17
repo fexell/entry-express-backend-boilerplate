@@ -164,10 +164,10 @@ AuthenticationController.Logout             = async (req, res, next, forcedLogou
     const userId                            = CookiesHelper.GetUserIdCookie(req)
     const refreshTokenId                    = req.refreshTokenId || CookiesHelper.GetRefreshTokenIdCookie(req)
     const refreshTokenRecord                = await RefreshTokenModel
-      .findOne({ _id: refreshTokenId, userId: userId, ip: clientIp })
+      .findOne({ _id: refreshTokenId, userId: userId })
 
     if(refreshTokenRecord)
-      await RefreshTokenModel.findOneAndUpdate({ _id: refreshTokenId, userId: userId, ip: clientIp, isRevoked: false }, { isRevoked: true })
+      await RefreshTokenModel.findOneAndUpdate({ _id: refreshTokenId, userId: userId, isRevoked: false }, { isRevoked: true })
 
     CookiesHelper.InvalidateCookie('userId', res)
     CookiesHelper.InvalidateCookie('accessToken', res)
