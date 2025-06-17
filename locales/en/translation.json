@@ -1,0 +1,79 @@
+{
+  "FormBodyNotFound": "Request body not found.",
+
+  "AccountInactive": "Your account is inactive.",
+
+  "RouteNotFound": "These aren't the droids you're looking for! (Route not found)",
+
+  "EmailRequired": "Email is required.",
+  "EmailInvalid": "Email is invalid.",
+  "EmailCreateTokenFailed": "Email verification could not be created.",
+  "EmailVerificationTokenNotFound": "Could not find an email verification token.",
+  "EmailQueryNotFound": "Could not find the email query.",
+
+  "UsernameRequired": "Username is required.",
+  "UsernameInvalid": "Username is invalid.",
+  "UsernameTaken": "This username is already taken.",
+  "UsernameVariation": "You can only change your username to a different variation of it.",
+
+  "ForenameRequired": "Forename is required.",
+  "ForenameInvalid": "Forename is invalid.",
+
+  "SurnameRequired": "Surname is required.",
+  "SurnameInvalid": "Surname is invalid.",
+
+  "PasswordRequired": "Password is required.",
+  "PasswordConfirmIncorrect": "Passwords are not matching.",
+  "PasswordIncorrect": "You have entered the wrong password.",
+
+  "UserCreated": "User with email {{ email }} has been created.",
+  "UserByEmailNotFound": "User with email {{ email }} could not be found.",
+  "UserLoginSuccessful": "You are now logged in.",
+  "UserNotFound": "User not found.",
+  "UserIdInvalid": "User id is invalid.",
+  "UserIdNotFound": "Could not find your user id.",
+  "UserIdCookieNotFound": "Could not find the user id cookie.",
+  "UserLoggedOut": "You are now logged out.",
+  "UserLoggedOutRevokedToken": "You have been forcefully logged out due to revoked token.",
+  "UserLoggedOutAccountInactive": "You have been forcefully logged out because your account is inactive.",
+  "UserLoggedOutEmailUnverified": "You have been forcefully logged out because you have not verified your email.",
+  "UserForcedLogout": "You have been forcefully logged out.",
+  "UserForcedLogoutBecause": "You have been forcefully logged out because {{ reason }}",
+  "UserAlreadyLoggedIn": "You are already logged in on this unit.",
+  "UserAlreadyLoggedOut": "You are already logged out on this unit.",
+  "UserCurrentlyLoggedOut": "You are currently logged out.",
+  "UserFound": "User was found.",
+  "UserIdNorAccessTokenFound": "User id, nor access token, could be found.",
+  "UserIdMismatch": "Your user id does not match the one in our database.",
+  "UserRecordsFound": "Records found.",
+  "UserRecordsNotFound": "Did not find any user records.",
+  "UserLoggedInUnitsFound": "Logged in units found.",
+  "UserEmailVerified": "This email is already verified.",
+  "UserEmailUnverified": "You have not verified your email.",
+  "UserEmailVerifyRecordNotFound": "A user with this email and verification token could not be found.",
+  "UserEmailVerifySuccessful": "Your email is now verified.",
+  "UserEmailVerifyFailed": "Could not verify your email.",
+
+  "ClientIpNotFound": "Your ip-address could not be found.",
+
+  "AccessTokenInvalid": "Access token is invalid.",
+  "AccessTokenCookieNotFound": "Access token cookie not found.",
+
+  "RefreshTokenRecordNotFound": "Refresh token record not found.",
+  "RefreshTokenIdNotFound": "Refresh token id not found.",
+  "RefreshTokenIdInvalid": "The refresh token's id is invalid.",
+  "RefreshTokenRevoked": "Your refresh token has been revoked.",
+  "RefreshTokenIdMismatch": "Your refresh token ids are not matching.",
+  "RefreshTokenIpQueryNotFound": "Ip-address query could not be found.",
+  "RefreshTokenIdParamNotFound": "Refresh token parameter not found.",
+  "RefreshTokenIpParamNotFound": "Ip-address parameter not found",
+  "RefreshTokenUserAgentNotFound": "User agent not found.",
+
+  "RouteProtected": "You need to be logged in to access this route.",
+
+  "LanguageSet": "You have switched language successfully.",
+
+  "UnitSuccessfullyRevoked": "Unit logged in on {{ userAgent }}, and with ip-address {{ ip }}, has been successfully revoked.",
+
+  "TooManyRequests": "Too many requests sent from this IP. Please try again later."
+}
