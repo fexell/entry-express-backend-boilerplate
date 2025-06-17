@@ -9,6 +9,7 @@ import path from 'path'
 const CookieOptions                         = (maxAge) => {
   return {
     maxAge                                  : maxAge,
+    signed                                  : true,
     secure                                  : app.get('NODE_ENV') === 'production',
     sameSite                                : 'strict',
     path                                    : '/',
@@ -40,13 +41,15 @@ CookiesHelper.SetSignedHttpOnlyCookie       = (name, value, maxAge, res) => {
 }
 
 // Quick access method for setting the user id cookie
+// ! Set it as a normal cookie so frontend can access it
 CookiesHelper.SetUserIdCookie               = (value, res) => {
   return CookiesHelper.SetCookie('userId', value, 2592000000, res) // 2592000000 = 30 days
 }
 
 // Quick access method for getting user id cookie
-CookiesHelper.GetUserIdCookie               = (req) => req.cookies.userId && mongoose.isValidObjectId(req.cookies.userId)
-  ? req.cookies.userId
+// ! This is a normal cookie so frontend can access it
+CookiesHelper.GetUserIdCookie               = (req) => req.signedCookies.userId && mongoose.isValidObjectId(req.signedCookies.userId)
+  ? req.signedCookies.userId
   : null
 
 // Quick access method for setting the access token cookie
