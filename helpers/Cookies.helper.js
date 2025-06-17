@@ -41,21 +41,21 @@ CookiesHelper.SetSignedHttpOnlyCookie       = (name, value, maxAge, res) => {
 
 // Quick access method for setting the user id cookie
 CookiesHelper.SetUserIdCookie               = (value, res) => {
-  return CookiesHelper.SetSignedHttpOnlyCookie('userId', value, 2592000000, res) // 2592000000 = 30 days
+  return CookiesHelper.SetCookie('userId', value, 2592000000, res) // 2592000000 = 30 days
 }
 
 // Quick access method for getting user id cookie
-CookiesHelper.GetUserIdCookie               = (req) => req.signedCookies.userId && mongoose.isValidObjectId(req.signedCookies.userId)
-  ? req.signedCookies.userId
+CookiesHelper.GetUserIdCookie               = (req) => req.cookies.userId && mongoose.isValidObjectId(req.cookies.userId)
+  ? req.cookies.userId
   : null
 
 // Quick access method for setting the access token cookie
 CookiesHelper.SetAccessTokenCookie          = (value, res) => {
-  return CookiesHelper.SetCookie('accessToken', value, 180000, res) // 180000 = 3 min
+  return CookiesHelper.SetSignedHttpOnlyCookie('accessToken', value, 180000, res) // 180000 = 3 min
 }
 
 // Quick access method for getting the access token cookie
-CookiesHelper.GetAccessTokenCookie          = (req) => req.cookies.accessToken
+CookiesHelper.GetAccessTokenCookie          = (req) => req.signedCookies.accessToken
 
 // Quick access method for setting the refresh token id cookie
 CookiesHelper.SetRefreshTokenIdCookie       = (value, res) => {
